@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Thêm khách hàng";
+}
+
+<div class="card card-outline card-primary">
+
+    <div class="card-header">
+        <h5 class="card-title">
+            <i class="bi bi-person-plus"></i>
+            Thêm khách hàng mới
+        </h5>
+    </div>
+
+    <div class="card-body">
+
+        <form action="/Customer/Create" method="post">
+
+            <!-- CUSTOMER NAME -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Tên khách hàng <span class="text-danger">*</span>
+                </label>
+                <input type="text"
+                       name="CustomerName"
+                       class="form-control"
+                       placeholder="Nhập tên khách hàng"
+                       required />
+            </div>
+
+            <!-- CONTACT NAME -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Tên giao dịch
+                </label>
+                <input type="text"
+                       name="ContactName"
+                       class="form-control"
+                       placeholder="Nhập tên giao dịch" />
+            </div>
+
+            <!-- PHONE -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Điện thoại
+                </label>
+                <input type="text"
+                       name="Phone"
+                       class="form-control"
+                       placeholder="Nhập số điện thoại" />
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Email
+                </label>
+                <input type="email"
+                       name="Email"
+                       class="form-control"
+                       placeholder="example@email.com" />
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Địa chỉ
+                </label>
+                <input type="text"
+                       name="Address"
+                       class="form-control"
+                       placeholder="Nhập địa chỉ" />
+            </div>
+
+            <!-- PROVINCE -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Tỉnh / Thành
+                </label>
+                <input type="text"
+                       name="Province"
+                       class="form-control"
+                       placeholder="Nhập tỉnh / thành" />
+            </div>
+
+            <!-- STATUS -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Trạng thái
+                </label>
+
+                <div class="form-check">
+                    <input class="form-check-input"
+                           type="checkbox"
+                           name="IsLocked"
+                           value="true"
+                           id="IsLocked" />
+                    <label class="form-check-label" for="IsLocked">
+                        Khóa khách hàng
+                    </label>
+                </div>
+            </div>
+
+            <!-- BUTTON -->
+            <div class="text-end">
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save"></i>
+                    Lưu dữ liệu
+                </button>
+
+                <a href="/Customer"
+                   class="btn btn-secondary ms-1">
+                    Quay lại
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,658 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{59D919E5-3F8F-260B-B386-DA00513BA83C}|Notes{59D919E5-3F8F-260B-B386-DA00513BA83C}|D:\\Work\\LTUDweb\\bt\\SV22T1020350\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{59D919E5-3F8F-260B-B386-DA00513BA83C}|Notes{59D919E5-3F8F-260B-B386-DA00513BA83C}|solutionrelative:log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.admin\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|solutionrelative:sv22t1020350.admin\\views\\customer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|solutionrelative:sv22t1020350.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\partner\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\partner\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{590CB0B9-2625-794B-8B7B-4ED5B68F80CD}|SV22T1020350.BusinessLayers\\SV22T1020350.BusinessLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.businesslayers\\partnerdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{590CB0B9-2625-794B-8B7B-4ED5B68F80CD}|SV22T1020350.BusinessLayers\\SV22T1020350.BusinessLayers.csproj|solutionrelative:sv22t1020350.businesslayers\\partnerdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{590CB0B9-2625-794B-8B7B-4ED5B68F80CD}|SV22T1020350.BusinessLayers\\SV22T1020350.BusinessLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.businesslayers\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{590CB0B9-2625-794B-8B7B-4ED5B68F80CD}|SV22T1020350.BusinessLayers\\SV22T1020350.BusinessLayers.csproj|solutionrelative:sv22t1020350.businesslayers\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|solutionrelative:sv22t1020350.admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\shipperrepisitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\shipperrepisitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4606D29E-E9D1-2700-8974-D0AFA4AEECFA}|SV22T1020350.Admin\\SV22T1020350.Admin.csproj|solutionrelative:sv22t1020350.admin\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sqlserver\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sqlserver\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\partner\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\partner\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\common\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\common\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\common\\paginationsearchinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\common\\paginationsearchinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\common\\pageitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\common\\pageitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\interfaces\\iuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\interfaces\\iuseraccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\orderdetailviewinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\orderdetailviewinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\ordersearchinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\ordersearchinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\security\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\security\\useraccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\orderstatusextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\orderstatusextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sales\\orderstatusenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sales\\orderstatusenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\hr\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\hr\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\catalog\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\catalog\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.models\\sv22t1020350.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F82409B2-ABA3-4BF8-BC56-C134B471CE6D}|SV22T1020350.Models\\SV22T1020350.Models.csproj|solutionrelative:sv22t1020350.models\\sv22t1020350.models.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|d:\\work\\ltudweb\\bt\\sv22t1020350\\sv22t1020350.datalayers\\sv22t1020350.datalayers.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{88EA551F-E4B1-400C-8089-0B0AD841C47B}|SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj|solutionrelative:sv22t1020350.datalayers\\sv22t1020350.datalayers.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 216,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 35,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "OrderStatusExtensions.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderStatusExtensions.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\OrderStatusExtensions.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderStatusExtensions.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\OrderStatusExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T02:46:57.702Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Views\\Customer\\Index.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020350.Admin\\Views\\Customer\\Index.cshtml",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Views\\Customer\\Index.cshtml",
+              "RelativeToolTip": "SV22T1020350.Admin\\Views\\Customer\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-14T02:57:54.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020350.Admin\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "SV22T1020350.Admin\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-14T02:52:35.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Admin\\Controllers\\CustomerController.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "SV22T1020350.Admin\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAD4vxQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T02:44:37.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PartnerDataService.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.BusinessLayers\\PartnerDataService.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.BusinessLayers\\PartnerDataService.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.BusinessLayers\\PartnerDataService.cs",
+              "RelativeToolTip": "SV22T1020350.BusinessLayers\\PartnerDataService.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAD4v6wAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T01:28:52.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.BusinessLayers\\Configuration.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.BusinessLayers\\Configuration.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.BusinessLayers\\Configuration.cs",
+              "RelativeToolTip": "SV22T1020350.BusinessLayers\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T01:12:13.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProvinceRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ProvinceRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\ProvinceRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ProvinceRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\ProvinceRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:56:28.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\OrderRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\OrderRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\OrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:55:37.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Program.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Admin\\Program.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Admin\\Program.cs",
+              "RelativeToolTip": "SV22T1020350.Admin\\Program.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:53:30.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\EmployeeRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\EmployeeRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\EmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:45:21.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\ProductRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ProductRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:37:46.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:37:27.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\CategoryRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\CategoryRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\CategoryRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:36:21.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShipperRepisitory.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ShipperRepisitory.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\ShipperRepisitory.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\ShipperRepisitory.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\ShipperRepisitory.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAowAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T00:34:08.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SupplierRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\SupplierRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SQLServer\\SupplierRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SQLServer\\SupplierRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SQLServer\\SupplierRepository.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAcwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T03:37:50.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IEmployeeRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IEmployeeRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\IEmployeeRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IEmployeeRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\IEmployeeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:55:45.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:55:28.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ICustomerRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\ICustomerRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\ICustomerRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\ICustomerRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\ICustomerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:55:24.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PaginationSearchInput.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PaginationSearchInput.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Common\\PaginationSearchInput.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PaginationSearchInput.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Common\\PaginationSearchInput.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwBcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:54:38.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PageItem.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PageItem.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Common\\PageItem.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PageItem.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Common\\PageItem.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:54:33.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PagedResult.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Common\\PagedResult.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Common\\PagedResult.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Common\\PagedResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:54:20.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IUserAccountRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IUserAccountRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\IUserAccountRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IUserAccountRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\IUserAccountRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAxwAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:40:36.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\OrderDetail.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderDetail.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\OrderDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:34:51.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\Order.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\Order.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\Order.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\Order.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:28:07.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\IOrderRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IOrderRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\IOrderRepository.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwB4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:13:50.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T02:11:35.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "OrderStatusEnum.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderStatusEnum.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\OrderStatusEnum.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderStatusEnum.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\OrderStatusEnum.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:22:29.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "OrderSearchInput.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderSearchInput.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\OrderSearchInput.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderSearchInput.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\OrderSearchInput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:22:22.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OrderDetailViewInfo.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderDetailViewInfo.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Sales\\OrderDetailViewInfo.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Sales\\OrderDetailViewInfo.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Sales\\OrderDetailViewInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:22:19.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Partner\\Customer.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Partner\\Customer.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Partner\\Customer.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Partner\\Customer.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwCcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:21:51.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\HR\\Employee.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\HR\\Employee.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\HR\\Employee.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\HR\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-11T01:21:47.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "SV22T1020350.Models.csproj",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\SV22T1020350.Models.csproj",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\SV22T1020350.Models.csproj",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\SV22T1020350.Models.csproj",
+              "RelativeToolTip": "SV22T1020350.Models\\SV22T1020350.Models.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-11T01:20:08.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "SV22T1020350.DataLayers.csproj",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj",
+              "RelativeDocumentMoniker": "SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj",
+              "RelativeToolTip": "SV22T1020350.DataLayers\\SV22T1020350.DataLayers.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-11T01:06:00.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Catalog\\Category.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Catalog\\Category.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Catalog\\Category.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Catalog\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T02:47:50.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "log.txt",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\log.txt",
+              "RelativeDocumentMoniker": "log.txt",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\log.txt",
+              "RelativeToolTip": "log.txt",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-03-07T02:46:53.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "UserAccount.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Security\\UserAccount.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Security\\UserAccount.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Security\\UserAccount.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Security\\UserAccount.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wBwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T02:41:10.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Supplier.cs",
+              "DocumentMoniker": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Partner\\Supplier.cs",
+              "RelativeDocumentMoniker": "SV22T1020350.Models\\Partner\\Supplier.cs",
+              "ToolTip": "D:\\Work\\LTUDweb\\bt\\SV22T1020350\\SV22T1020350.Models\\Partner\\Supplier.cs",
+              "RelativeToolTip": "SV22T1020350.Models\\Partner\\Supplier.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAywB4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-07T02:40:12.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+﻿#Tạo Solution và các Project:
+Tạo Blank Solution có tên SV(MSV): ví dụ SV22T1020350
+Bổ sung cho Solution các Project sau:
+-	<SolutionName>.Admin: Project dạng ASP.NET Core MVC (ví dụ: SV22T1020350.Admin)
+-	<SolutionName>.Shop: Project dạng ASP.NET Core MVC
+-	<SolutionName>.Models: Project dạng Class Library
+-	<SolutionName>.DataLayers: Project dạng Class Library <SolutionName>.BusinessLayers: Project dạng Class Library
+#Thiết kế Layout cho App Admin
+-	Sử dụng Theme AdminLTE4, Bootstrap5
+-	Mở file Layout của ứng dụng, copy code HTML của file Layout.html sang _layout
+#Các Controller và Action dự kiến ( chức năng dự kiến)
+##Home
+-	Home/Index
+
+##Account
+-	Account/login
+-	Account/logut
+-	Account/ChangePassword
+
+##Supplier
+-	Supplier/Index
+	- Hiển thị danh sách dưới dạng phân trang
+	- Tìm kiếm nhà cung cấp theo tên
+	- Điều hướng (nav/link) đến các chức năng khác: Create, Edit, Delete
+-	Supplier/Create
+-	Supplier/Edit/{id}
+-	Supplier/Delete/{id}
+
+##Customer
+-	Customer/Index
+	o	Hiển thị danh sách dưới dạng phân trang
+	o	Tìm kiếm khách hàng theo tên
+	o	Điều hướng đến các chức năng khác liên quan đền khách hàng
+-	Customer/Create
+-	Customer/Edit/{id}
+-	Customer/Delete/{id}
+-	Customer/ChangePassword/{id}
+
+##Shipper
+-	Shipper/Index
+-	Shipper/Create
+-	Shipper/Edit/{id}
+-	Shipper/Delete/{id}
+
+##Employee
+-	Employee/Index
+-	Employee/Create
+-	Employee/Edit/{id}
+-	Employee/Delete/{id}
+-	Employee/ChangePassword/{id}
+-	Employee/ChangeRole/{id}
+
+##Category
+-	Category/Index
+-	Category/Create
+-	Category/Edit/{id}
+-	Category/Delete/{id}
+
+##Product
+-	Product/Index
+-	Product/Detail/{id}
+-	Product/Create
+-	Product/Edit/{id}
+-	Product/Delete/{id}
+-	Product/ListAttributes/{id}
+-	Product/CreateAttributes/{id}
+-	Product/EditAttributes/{id}?attrobuteId={attributeId}
+-	Product/DeletaAttributes/{id}?attrobuteId={attributeId}
+-	Product/ListPhotos/{id}
+-	Product/CreatePhotos/{id}
+-	Product/EditPhotos/{id}?photoId={photoId}
+-	Product/deletePhotes/{id}?photoId={photoId}
+
+## Order
+- Order/Index
+- Order/Search
+- Order/Create
+- Order/Detail/{id}
+- Order/EditCartItem/{id}?productId={productId}
+- Order/DeleteCartItem/{id}?productId={productId}
+- Order/ClearCart
+- Order/Accept/{id}
+- Order/Shipping/{id}
+- Order/Finish/{id}
+- Order/Reject/{id}
+- Order/Cancel/{id}
+- Order/Delete/{id}
+
+Măt hàng: đầu vào tìm kiếm/lọc dữ liệu
+	- Loại hàng(select)
+	- Nhà cung cấp(select)
+	- Khoảng giá
+	- Tên
+Đơn hàng: đầu vào tìm kiếm/lọc dữ liệu
+	- Trạng thái(select)
+	- Thời gian(từ ngày-đến ngày)
+	- Tên khách hàng
+
+
+	tuyệt đối không dùng <input type="date"> để chọn ngày tháng 
+	vì trình duyệt không hỗ trợ tốt-> dungf textbox bình thường + jquery datepicker
+
+	domain là tập hợp các đối tượng, khái niệm liên quan đến nghiệp vụ của ứng dụng
+	technical domain: tập hợp các đối tượng, khái niệm liên quan đến kỹ thuật, công nghệ của ứng dụng
+		csdl có bảng nào thì technocal domain có class đó
+		entity, businissopject, model, viewmodel, dto, repository, service, controller
+		model: responmodel, requestmodel, viewmodel, dto
+		dto: đối tượng chuyển dữ liệu giữa các lớp, 
+			tầng của ứng dụng dùng để truyền dữ liệu giữa các lớp, tầng của ứng dụng
+		
+
+	-Data Dictionary:
+		+Province
+	-Partner:
+		+Supplier
+		+Shipper
+		+Customer
+	-HR:
+		+Employee
+	-Catalog:
+		+Category
+		+Product
+		+ProductAttribute
+		+ProductPhoto
+	-Sales:
+		+Order
+		+OrderDetail
+		+Orderstatus
+	-Security:
+		+Account
+		+Role
+	-Comment
+
+	
+	cho csdl:
+	cho các lớp sau:
+	 cho interface sau:
+	viết lớp SupplierRepositoty cài đặt cho Supplier dưa vào interface trên theo yêu cầu:
+- constructor của lớp nhận tham số đầu vài là ConnerctionString
+- sử dụng Dapper, Mycrosoft.data.SqlClient
+- lớp thuộc namespace SV22T1020350.DataLayers.SQLServer
+-Viết đầy đủ summary cho lớp và các hàm
+-Lớp Supplier như sau:
+
+task phải hoàn thành cài đặt các Repository
+_ SupplierRepository: IGenericRepository<Supplier>
+- CustomerRepository: ICustommerRepository
+- ShipperRepository: IGenericRepository<Shipper>
+- EmployeeRepository: IEmployeeRepository
+- CategoryRepository: IGenericRepository<Category>
+- ProductRepository: IProductRepository
+- OrderRepository: IOrderRepository
+- ProvinceRepository: IDataDictionaryRepository<province>
+
+
+
+- Cài đặt packege Newtonsoft.Json cho Admin
+- Tạo thu muc AppCodes trong Admin, Copu file ApplicationContext.cs vào thu mục này
+- thay file Program.cs bởi file trên Classroom
+- Bổ sung cấu thình chuỗi tham số kết nối csdl vào file appsettings.json
+
+- Tạo class Configuration trong BusinessLayers
+- Bổ sung lớp ParterDataService trong BusinessLayers
+
+
+- Task:hoàn thành cài đặt cho BusinessLayer
+	ParterDataService
+	DictionaryDataService
+	HRDataService
+	CatalogDataService
+	SalesDataService
+
+	SecurityDataService
+
+	trong view trên cùng phải có @model, sau đó là kiểu dữ liệu
+	trong vie để truy cập dữ liệu từ controller truyền sang thì phải có @model, 
+		sau đó là kiểu dữ liệu
