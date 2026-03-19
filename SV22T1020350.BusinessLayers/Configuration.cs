@@ -18,7 +18,7 @@ namespace SV22T1020350.BusinessLayers
         /// <param name="connectionString"></param>
         public static void Initialize(string connectionString)
         {
-            connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         /// <summary>

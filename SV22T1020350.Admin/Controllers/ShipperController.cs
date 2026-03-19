@@ -1,12 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SV22T1020350.Models.Common;
 
 namespace SV22T1020350.Admin.Controllers
 {
     public class ShipperController : Controller
     {
+        private const string SHIPPER_SEARCH = "ShipperSearchInput";
+
         public IActionResult Index()
         {
-            return View();
+            // Lấy lại điều kiện tìm kiếm từ session (nếu có)
+            var input = ApplicationContext.GetSessionData<PaginationSearchInput>(SHIPPER_SEARCH);
+            if (input == null)
+            {
+                input = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = ApplicationContext.PageSize,
+                    SearchValue = ""
+                };
+            }
+            return View(input);
+        }
+
+        public async Task<IActionResult> Search(PaginationSearchInput input)
+        {
+            var result = await PartnerDataService.ListShippersAsync(input);
+            // Lưu lại điều kiện tìm kiếm hiện tại vào session
+            ApplicationContext.SetSessionData(SHIPPER_SEARCH, input);
+            return View(result); // Trả về View "Search.cshtml"
         }
         /// <summary>
         ///  thêm hoặc cập nhật thông tin Shipper

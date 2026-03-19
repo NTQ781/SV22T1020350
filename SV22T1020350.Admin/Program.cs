@@ -65,10 +65,10 @@ ApplicationContext.Configure
 );
 
 //Get Connection String from appsettings.json
-string connectionString = builder.Configuration.GetConnectionString("LiteCommerceDB")
+string connectionString = app.Configuration.GetConnectionString("LiteCommerceDB")
     ?? throw new InvalidOperationException("ConnectionString 'LiteCommerceDB' not found.");
 
-// Initialize Business Layer Configuration
+// Kh?i t?o Business Layer
 SV22T1020350.BusinessLayers.Configuration.Initialize(connectionString);
 
 app.Run();

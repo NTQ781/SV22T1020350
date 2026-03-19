@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LiteCommerce.Web.Controllers
+namespace SV22T1020350.Web.Controllers
 {
     public class OrderController : Controller
     {

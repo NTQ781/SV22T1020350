@@ -175,3 +175,31 @@ _ SupplierRepository: IGenericRepository<Supplier>
 	trong view trên cùng phải có @model, sau đó là kiểu dữ liệu
 	trong vie để truy cập dữ liệu từ controller truyền sang thì phải có @model, 
 		sau đó là kiểu dữ liệu
+
+
+
+	Chức năng tìm kiếm, lọc dữ liệu => nhược điểm:
+	- Khi thực hiện chức năng tìm kiếm thì sẽ load lại toàn bộ dữ liệu, 
+		sau đó mới lọc dữ liệu => hiệu suất kém		trong khi chỉ cần nạp lại phần nội dung 
+			của kết quả tìm kiếm, lọc dữ liệu thì sẽ nhanh hơn rất nhiều
+
+	-Không "lưu vết" khi chuyển qua các chức năng khác, 
+		ví dụ: khi tìm kiếm sản phẩm theo tên, sau đó chuyển sang trang chi tiết sản phẩm, sau đó quay lại trang danh sách sản phẩm thì sẽ mất vết tìm kiếm trước
+
+
+	Khi Action truyền dl cho View dưới dạng Model
+		return View(dl);
+		- Phaỉ biết kiểu được truyền cho View là gì, để có thể sử dụng được trong View
+		- Trong View nhận dl, phải khai báo kiểu dự liệu nhận từ Action bằng lệnh:
+			@model <kiểu dữ liệu>
+		- Trong View, dl(model) mà Action triueenf ra được lưu trong thuộc tím có tên là Model 
+			( thông qua thuộc tính này để lấy được dl do ACtion truyền cho View)
+		Một đối tượng nhập dl trên <form> (input, select,..) muốn gửi được dl lên server khi submit:
+		- Phải có thuộc tính name
+		- Giá trị của thuộc tính name sẽ là tên tham số của Action nhận dl từ form
+
+		Dùng session để lưu "bookmark":
+		- Khi thực hiện chức năng tìm kiếm, lọc dữ liệu thì lưu các tham số (điều kiện) tìm kiếm, lọc dữ liệu vào session
+		- khi vào chức năng đăng nhập điều kiện tìm kiếm (index), kiểm tra nếu trong sesstion đang lưu điều
+		kiện tùm kiếm thì sử dụng lại, nếu không thì mới tạo điều kiện tìm kiếm mới.
+		Trong ÁP.NET cỏe MVC, muốn dùng session thì phải đăng ký (registers) vào app

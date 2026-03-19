@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using SV22T1020350.DataLayers.Interfaces;
 using SV22T1020350.Models.DataDictionary;
 
-namespace SV22T1020008.DataLayers.SQLServer
+namespace SV22T1020350.DataLayers.SQLServer
 {
     /// <summary>
     /// Xử lý dữ liệu tỉnh thành

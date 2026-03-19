@@ -284,3 +284,4 @@ D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Admin\bin\Debug\net10.0\SV22T102035
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Admin\bin\Debug\net10.0\SV22T1020350.BusinessLayers.pdb
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Admin\bin\Debug\net10.0\SV22T1020350.DataLayers.pdb
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Admin\bin\Debug\net10.0\SV22T1020350.Models.pdb
+D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Admin\obj\Debug\net10.0\SV22T1020350.Admin.sourcelink.json

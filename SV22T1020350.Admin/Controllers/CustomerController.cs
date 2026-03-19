@@ -6,22 +6,35 @@ namespace SV22T1020350.Admin.Controllers
 {
     public class CustomerController : Controller
     {
-        private const int PAGESIZE = 10;
+        
+        /// <summary>
+        /// tên của biến dùng để lưu điều kiện tìm kiếm của khách hàng trong session
+        /// </summary>
+        private const string CUSTOMERSEARCHINPUT = "CustomerSearchInput";
 
         /// <summary>
-        /// tìm kiếm thông tin khách hàng
+        /// Nhập đầu vào tìm kiếm -> hiển thị kết quả tìm kiếm
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> Index(int page = 1, string searchValue="")
+        public IActionResult Index()
         {
-            var input = new PaginationSearchInput()
+            var input = ApplicationContext.GetSessionData<PaginationSearchInput>(CUSTOMERSEARCHINPUT);
+            if (input == null)
+                input = new PaginationSearchInput()
             {
-                Page = page,
-                PageSize = PAGESIZE,
-                SearchValue = searchValue
+                Page = 1,
+                PageSize = ApplicationContext.PageSize,
+                    SearchValue = ""
             };
+            return View( input);
+        }
+
+        public async Task<IActionResult> Search(PaginationSearchInput input)
+        {    
             var result = await PartnerDataService.ListCustomersAsync(input);
+            ApplicationContext.SetSessionData(CUSTOMERSEARCHINPUT, input);
             return View(result);
+           
         }
 
         /// <summary>

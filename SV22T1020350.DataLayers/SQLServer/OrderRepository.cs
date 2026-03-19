@@ -4,7 +4,7 @@ using SV22T1020350.DataLayers.Interfaces;
 using SV22T1020350.Models.Common;
 using SV22T1020350.Models.Sales;
 
-namespace SV22T1020008.DataLayers.SQLServer
+namespace SV22T1020350.DataLayers.SQLServer
 {
     public class OrderRepository : IOrderRepository
     {

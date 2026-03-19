@@ -1,13 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SV22T1020350.BusinessLayers;
+using SV22T1020350.Models.Common;
 
 namespace SV22T1020350.Admin.Controllers
 {
     public class EmployeeController : Controller
     {
+        private const string EMPLOYEE_SEARCH = "EmployeeSearchInput";
+
         public IActionResult Index()
         {
-            ViewBag.Title = "Employee";
-            return View();
+            // Lấy lại điều kiện tìm kiếm từ session (nếu có)
+            var input = ApplicationContext.GetSessionData<PaginationSearchInput>(EMPLOYEE_SEARCH);
+            if (input == null)
+            {
+                input = new PaginationSearchInput()
+                {
+                    Page = 1,
+                    PageSize = ApplicationContext.PageSize,
+                    SearchValue = ""
+                };
+            }
+            return View(input);
+        }
+
+        public async Task<IActionResult> Search(PaginationSearchInput input)
+        {
+            var result = await HRDataService.ListEmployeesAsync(input);
+            // Lưu lại điều kiện tìm kiếm hiện tại vào session
+            ApplicationContext.SetSessionData(EMPLOYEE_SEARCH, input);
+            return View(result); // Trả về View "Search.cshtml"
         }
 
         /// <summary>

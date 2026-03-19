@@ -1,0 +1,89 @@
+﻿@model SV22T1020350.Models.Common.PagedResult<SV22T1020350.Models.HR.Employee>
+@{
+    Layout = null;
+}
+
+<div class="mb-2 text-muted">
+    Danh sách này có <strong>@Model.RowCount</strong> nhân viên
+</div>
+
+<div class="card">
+    <div class="card-body p-1">
+        <table class="table table-bordered table-hover mb-0">
+            <thead class="table-secondary">
+                <tr>
+                    <th style="width: 80px;">Ảnh</th>
+                    <th>Họ tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Điện thoại / Email</th>
+                    <th>Địa chỉ</th>
+                    <th class="text-center">Trạng thái</th>
+                    <th class="text-center" style="width:140px;">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.DataItems)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <img src="@(string.IsNullOrEmpty(item.Photo) ? Url.Content("~/images/employees/nophoto.png") : Url.Content($"~/images/employees/{item.Photo}"))"
+                                 style="width:50px; height:50px; object-fit:cover; border-radius: 5px;" alt="Photo" />
+                        </td>
+                        <td class="align-middle">@item.FullName</td>
+                        <td class="align-middle">@item.BirthDate?.ToString("dd/MM/yyyy")</td>
+                        <td class="align-middle">
+                            <div><i class="bi bi-phone"></i> @item.Phone</div>
+                            <div class="text-info"><i class="bi bi-envelope"></i> @item.Email</div>
+                        </td>
+                        <td class="align-middle">@item.Address</td>
+                        <td class="text-center align-middle">
+                            @if (item.IsWorking == true)
+                            {
+                                <span class="badge bg-success">Đang làm việc</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đã nghỉ việc</span>
+                            }
+                        </td>
+                        <td class="text-center text-nowrap align-middle">
+                            <a href="~/Employee/Edit/@item.EmployeeID" class="btn btn-sm btn-primary" title="Cập nhật">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <a href="~/Employee/Delete/@item.EmployeeID" class="btn btn-sm btn-danger" title="Xóa">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                            <a href="~/Employee/ChangePassword/@item.EmployeeID" class="btn btn-sm btn-warning" title="Đổi mật khẩu">
+                                <i class="bi bi-key"></i>
+                            </a>
+                            <a href="~/Employee/ChangeRole/@item.EmployeeID" class="btn btn-sm btn-info" title="Cấp quyền">
+                                <i class="bi bi-shield-check"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card-footer">
+        <ul class="pagination justify-content-center">
+            @foreach (var p in Model.GetDisplayPages())
+            {
+                <li class="page-item @(p.IsCurrent ? "active" : "")">
+                    @if (p.IsEllipsis)
+                    {
+                        <span class="page-link">...</span>
+                    }
+                    else
+                    {
+                        <a class="page-link" href="javascript:;"
+                           onclick="paginationSearch(event, document.getElementById('formSearch'), @p.Page)">
+                            @p.Page
+                        </a>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</div>

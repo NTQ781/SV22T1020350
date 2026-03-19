@@ -1,5 +1,9 @@
 ﻿using Newtonsoft.Json;
-
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http; // Bắt buộc cho IHttpContextAccessor
+using Microsoft.AspNetCore.Hosting; // Bắt buộc cho IWebHostEnvironment
+using Microsoft.Extensions.Configuration; // Bắt buộc cho IConfiguration
+using System;
 namespace SV22T1020350.Admin
 {
     /// <summary>
@@ -54,8 +58,8 @@ namespace SV22T1020350.Admin
         /// <summary>
         /// Ghi dữ liệu vào session
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key"> tên biến</param>
+        /// <param name="value">giá trị</param>
         public static void SetSessionData(string key, object value)
         {
             try
@@ -115,6 +119,10 @@ namespace SV22T1020350.Admin
             _configuration?.GetSection(name).Bind(value);
             return value;
         }
+        /// <summary>
+        /// số dòng được hiển thị trên mỗi trang (được lấy từ appsettings.json)
+        /// </summary>
+        public static int PageSize => Convert.ToInt32( GetConfigValue("PageSize"));
         
     }
 }
