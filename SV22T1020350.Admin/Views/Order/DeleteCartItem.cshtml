@@ -1,27 +1,19 @@
 ﻿@{
     Layout = null;
 }
-<div class="modal-header text-bg-danger">
-    <strong class="modal-title">
-        Xóa mặt hàng khỏi đơn hàng
-    </strong>
-    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-</div>
-
-<div class="modal-body">
-    <div class="alert alert-danger d-flex align-items-center">
-        <i class="bi bi-info-circle me-2"></i>
-        Bạn có muốn xóa mặt hàng này ra khỏi đơn hàng không?
+<form action="~/Order/DeleteCartItem" method="post" class="ajax-form">
+    <input type="hidden" name="orderID" value="@ViewBag.OrderId" />
+    <input type="hidden" name="productID" value="@ViewBag.ProductId" />
+    <div class="modal-header text-bg-danger">
+        <strong class="modal-title">Xác nhận xóa mặt hàng</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
     </div>
-</div>
-
-<div class="modal-footer">
-    <button type="submit" class="btn btn-primary">
-        <i class="bi bi-check"></i> Chấp nhận
-    </button>
-    <button type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal">
-        Đóng
-    </button>
-</div>
+    <div class="modal-body text-center p-4">
+        <i class="bi bi-trash3 text-danger display-1"></i>
+        <p class="mt-3">Bạn có chắc chắn muốn xóa mặt hàng này khỏi đơn hàng/giỏ hàng?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-danger">Đồng ý xóa</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+    </div>
+</form>

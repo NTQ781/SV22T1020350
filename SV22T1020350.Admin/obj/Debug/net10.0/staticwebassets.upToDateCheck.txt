@@ -206,6 +206,13 @@ wwwroot\Layout.html
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\employees\nophoto.png
+wwwroot\images\products\639111201979567782_z7119744140911_06e88ca65de237831aa5e1eb87a8f1eb.jpg
+wwwroot\images\products\639111645390205996_123 ed.JPG
+wwwroot\images\products\639111648677284713_123145.jpg
+wwwroot\images\products\639111649417983609_34123ed.jpg
+wwwroot\images\products\639111656296387248_123 ed.JPG
+wwwroot\images\products\639111720554043525_123 ed.JPG
+wwwroot\images\products\639111723327574026_123145.jpg
 wwwroot\images\products\demo.png
 wwwroot\images\products\nophoto.png
 wwwroot\js\site.js

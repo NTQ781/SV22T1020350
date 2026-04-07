@@ -1,87 +1,102 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020350.BusinessLayers;
 using SV22T1020350.Models.Common;
+using SV22T1020350.Models.HR;
+using System.Text.Json;
 
 namespace SV22T1020350.Admin.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private const string EMPLOYEE_SEARCH = "EmployeeSearchInput";
 
+        private PaginationSearchInput? GetSearchCookie()
+        {
+            var data = Request.Cookies[EMPLOYEE_SEARCH];
+            if (string.IsNullOrEmpty(data)) return null;
+            try { return JsonSerializer.Deserialize<PaginationSearchInput>(data); }
+            catch { return null; }
+        }
+
+        private void SetSearchCookie(PaginationSearchInput input)
+        {
+            var options = new CookieOptions { HttpOnly = true, Expires = DateTime.Now.AddDays(1) };
+            Response.Cookies.Append(EMPLOYEE_SEARCH, JsonSerializer.Serialize(input), options);
+        }
+
         public IActionResult Index()
         {
-            // Lấy lại điều kiện tìm kiếm từ session (nếu có)
-            var input = ApplicationContext.GetSessionData<PaginationSearchInput>(EMPLOYEE_SEARCH);
-            if (input == null)
-            {
-                input = new PaginationSearchInput()
-                {
-                    Page = 1,
-                    PageSize = ApplicationContext.PageSize,
-                    SearchValue = ""
-                };
-            }
+            var input = GetSearchCookie() ?? new PaginationSearchInput() { Page = 1, PageSize = ApplicationContext.PageSize, SearchValue = "" };
             return View(input);
         }
 
         public async Task<IActionResult> Search(PaginationSearchInput input)
         {
             var result = await HRDataService.ListEmployeesAsync(input);
-            // Lưu lại điều kiện tìm kiếm hiện tại vào session
-            ApplicationContext.SetSessionData(EMPLOYEE_SEARCH, input);
-            return View(result); // Trả về View "Search.cshtml"
+            SetSearchCookie(input);
+            return View(result);
         }
 
-        /// <summary>
-        /// thêm nhân viên mới
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult Create()
+        [HttpPost]
+        public async Task<IActionResult> SaveData(Employee data, IFormFile? uploadPhoto)
         {
-            ViewBag.Title = "Thêm nhân viên";
-            return View("Edit");
-        }
-        /// <summary>
-        /// chỉnh sửa thông tin nhân viên
-        /// </summary>
-        /// <param name="id">mã nhân viên cần cỉnh sửa</param>
-        /// <returns></returns>
-        public IActionResult Edit(int id)
-        {
-            ViewBag.Title = "Chỉnh sửa nhân viên";
-            return View();
-        }
-        /// <summary>
-        /// xóa nhân viên
-        /// </summary>
-        /// <param name="id">mã nhân viên cần xóa</param>
-        /// <returns></returns>
-        public IActionResult Delete(int id)
-        {
-            ViewBag.Title = "Xóa nhân viên";
-            return View();
-        }
-        /// <summary>
-        /// đổi mật khẩu cho nhân viên
-        /// </summary>
-        /// <param name="id">mã nhân viên cần đổi mật khẩu</param>
-        /// <returns></returns>
-        public IActionResult ChangePassword(int id)
-        {
-            ViewBag.Title = "Đổi mật khẩu";
-            return View();
+            try
+            {
+                if (!ModelState.IsValid) return View("Edit", data);
+
+                if (uploadPhoto != null && uploadPhoto.Length > 0)
+                {
+                    var fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
+                    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "employees");
+                    if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+                    var filePath = Path.Combine(folderPath, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create)) { await uploadPhoto.CopyToAsync(stream); }
+                    data.Photo = fileName;
+                }
+
+                if (data.EmployeeID == 0)
+                {
+                    data.Password = CryptHelper.HashMD5("123456");
+                    await HRDataService.AddEmployeeAsync(data);
+                }
+                else
+                {
+                    var old = await HRDataService.GetEmployeeAsync(data.EmployeeID);
+                    if (old != null) { data.RoleNames = old.RoleNames; data.Password = old.Password; }
+                    await HRDataService.UpdateEmployeeAsync(data);
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex) { TempData["ErrorMessage"] = ex.Message; return View("Edit", data); }
         }
 
-        /// <summary>
-        /// phân quyền cho nhân viên
-        /// </summary>
-        /// /// <param name="id">mã nhân viên phân quyền</param>
-        /// <returns></returns>
-        public IActionResult ChangeRole(int id)
+        // ==========================================================
+        // ĐÃ BỔ SUNG: Hàm GET để hiển thị trang xác nhận xóa
+        // ==========================================================
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
         {
-            ViewBag.Title = "Phân quyền nhân viên";
-            return View();
+            var model = await HRDataService.GetEmployeeAsync(id);
+            if (model == null) return RedirectToAction("Index");
+            return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            try
+            {
+                bool result = await HRDataService.DeleteEmployeeAsync(id);
+                if (!result) throw new Exception("Không thể xóa nhân viên này vì đang có dữ liệu liên quan (Đơn hàng).");
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
         }
     }
 }

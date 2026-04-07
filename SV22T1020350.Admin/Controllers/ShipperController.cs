@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SV22T1020350.Models.Common;
+using SV22T1020350.BusinessLayers;
 
 namespace SV22T1020350.Admin.Controllers
 {

@@ -1,0 +1,39 @@
+﻿@model SV22T1020350.Models.Catalog.ProductPhoto
+@{
+    ViewBag.Title = "Xóa ảnh mặt hàng";
+}
+@section PageToolBar {
+    <button type="submit" form="formDelete" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Xóa ảnh
+    </button>
+    <a href="~/Product/Edit/@Model.ProductID" class="btn btn-secondary ms-1">
+        <i class="bi bi-arrow-left"></i> Quay lại
+    </a>
+}
+
+<div class="card card-danger card-outline">
+    <div class="card-header"><h3 class="card-title"><i class="bi bi-image"></i> Xác nhận xóa ảnh</h3></div>
+    <div class="card-body">
+        <form id="formDelete" method="post" action="~/Product/DeletePhotosConfirm/@Model.ProductID?photoId=@Model.PhotoID">
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa ảnh này không?
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img src="~/images/products/@(string.IsNullOrEmpty(Model.Photo) ? "nophoto.png" : Model.Photo)"
+                         class="img-thumbnail shadow-sm" style="max-height: 250px;" />
+                </div>
+                <div class="col-md-9">
+                    <dl class="row">
+                        <dt class="col-sm-3">Mô tả ảnh:</dt>
+                        <dd class="col-sm-9">@(string.IsNullOrEmpty(Model.Description) ? "(Không có mô tả)" : Model.Description)</dd>
+                        <dt class="col-sm-3">Thứ tự hiển thị:</dt>
+                        <dd class="col-sm-9">@Model.DisplayOrder</dd>
+                        <dt class="col-sm-3">Trạng thái:</dt>
+                        <dd class="col-sm-9">@(Model.IsHidden ? "Đang ẩn" : "Đang hiện")</dd>
+                    </dl>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

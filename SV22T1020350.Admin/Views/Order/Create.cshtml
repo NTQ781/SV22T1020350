@@ -1,200 +1,185 @@
-﻿@{
+﻿@model IEnumerable<SV22T1020350.Models.Sales.OrderDetailViewInfo>
+@{
     ViewBag.Title = "Lập đơn hàng";
 }
 
 <div class="row">
-    <!-- Tìm kiếm & chọn mặt hàng -->
-    <div class="col-4">
+    <div class="col-md-4">
         <div class="card card-outline card-primary h-100">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-search"></i>
-                    Lựa chọn hàng cần bán
-                </h5>
-            </div>
-
+            <div class="card-header"><h5 class="mb-0">Lựa chọn hàng cần bán</h5></div>
             <div class="card-body">
-                <!-- Search -->
-                <form method="get" class="mb-3">
+                <form id="formSearchProduct" method="get" action="/Order/SearchProduct" class="mb-3">
                     <div class="input-group">
-                        <input class="form-control"
-                               name="searchValue"
-                               placeholder="Nhập tên mặt hàng cần tìm" autofocus />
-                        <button class="btn btn-primary">
-                            <i class="bi bi-search"></i>
-                        </button>
+                        <input class="form-control" name="searchValue" placeholder="Nhập tên mặt hàng..." autofocus />
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
-
-                <!-- Danh sách mặt hàng -->
-                @for (int i = 1; i <= 3; i++)
-                {
-                    <form method="post" class="border rounded p-2 mb-2">
-                        <strong>Macbook Pro 15" M2 2023</strong>
-
-                        <div class="row mt-2">
-                            <div class="col-4">
-                                <img src="~/images/products/demo.png"
-                                     class="img-fluid border" style="max-height:100px" />
-                            </div>
-                            <div class="col-8">
-                                <div class="row g-2">
-                                    <div class="col-7">
-                                        <label class="form-label mb-0">Giá</label>
-                                        <input class="form-control form-control-sm money-input"
-                                               value="45000000" />
-                                    </div>
-                                    <div class="col-5">
-                                        <label class="form-label mb-0">SL</label>
-                                        <input type="number"
-                                               min="1"
-                                               value="1"
-                                               class="form-control form-control-sm" />
-                                    </div>
-                                </div>
-
-                                <button class="btn btn-sm btn-primary mt-2 w-100">
-                                    <i class="bi bi-cart-plus"></i>
-                                    Thêm vào giỏ
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                }
-            </div>
-
-            <div class="card-footer">
-                <ul class="pagination justify-content-between mb-0">
-                    <li class="page-item">
-                        <a class="page-link">
-                            <i class="bi bi-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link">
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
+                <div id="productSearchResult" class="overflow-auto" style="max-height: 550px;">
+                    <p class="text-muted text-center mt-3">Đang tải danh sách mặt hàng...</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Giỏ hàng và thông tin khách hàng -->
-    <div class="col-8">
-        <!-- Giỏ hàng -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card card-outline card-success">
-                    <div class="card-header">
-                        <h5 class="mb-0">
-                            <i class="bi bi-cart"></i>
-                            Danh sách mặt hàng đã chọn
-                        </h5>
-                    </div>
-
-                    <div class="card-body">
-                        <table class="table table-bordered table-hover align-middle">
-                            <thead class="table-success">
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th style="width:auto">Tên hàng</th>
-                                    <th class="text-center" style="width:100px">ĐVT</th>
-                                    <th class="text-center" style="width:100px">SL</th>
-                                    <th class="text-end" style="width:150px">Giá</th>
-                                    <th class="text-end" style="width:150px">Thành tiền</th>
-                                    <th style="width:80px"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for (int i = 1; i <= 3; i++)
-                                {
-                                    <tr>
-                                        <td class="text-center">@i</td>
-                                        <td>Laptop HP Gaming VICTUS</td>
-                                        <td class="text-center">Bộ</td>
-                                        <td class="text-center">1</td>
-                                        <td class="text-end">23.990.000</td>
-                                        <td class="text-end">23.990.000</td>
-                                        <td class="text-end text-nowrap">
-                                            <a class="btn btn-sm btn-primary open-modal" href="~/Order/EditCartItem?productId=456">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-                                            <a class="btn btn-sm btn-danger open-modal" href="~/Order/DeleteCartItem?productId=456">
-                                                <i class="bi bi-dash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th colspan="5" class="text-end">Tổng cộng:</th>
-                                    <th class="text-end">71,970,000</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-                        </table>
-
-                        <div class="text-end">
-                            <a class="btn btn-sm btn-danger mt-2 open-modal"                               
-                               href="~/Order/ClearCart">
-                                <i class="bi bi-trash"></i>
-                                Xóa giỏ hàng
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-8">
+        <div class="card card-outline card-success mb-3">
+            <div class="card-header"><h5 class="mb-0">Danh sách mặt hàng đã chọn</h5></div>
+            <div class="card-body p-0" id="shoppingCartContainer">
+                @await Html.PartialAsync("_ShoppingCart", Model)
             </div>
         </div>
-        <!-- Thông tin khách hàng và nơi giao hàng -->
-        <div class="row mt-3">
-            <div class="col-12">
-                <div class="card card-outline card-info">
-                    <div class="card-header">
-                        <h5 class="mb-0">
-                            <i class="bi bi-person"></i>
-                            Thông tin khách hàng & nơi giao hàng
-                        </h5>
+
+        <div class="card card-outline card-info">
+            <div class="card-header"><h5 class="mb-0">Thông tin khách hàng & nơi giao hàng</h5></div>
+            <div class="card-body">
+                <form id="formInitOrder" method="post" action="/Order/Init">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tên khách hàng (*)</label>
+                            <input type="text" class="form-control" name="customerName" required placeholder="Nhập tên..." />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Số điện thoại (*)</label>
+                            <input type="tel" class="form-control" name="customerPhone" required placeholder="SĐT để kiểm tra khách cũ/mới" />
+                        </div>
                     </div>
 
-                    <div class="card-body">
-                        <form method="post">
-                            <div class="row mb-3">
-                                <label class="col-md-2 col-form-label">Khách hàng</label>
-                                <div class="col-md-10">
-                                    <select class="form-select">
-                                        <option>-- Chọn khách hàng --</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-md-2 col-form-label">Tỉnh/thành</label>
-                                <div class="col-md-10">
-                                    <select class="form-select">
-                                        <option>-- Chọn Tỉnh/thành giao hàng --</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-md-2 col-form-label">Địa chỉ</label>
-                                <div class="col-md-10">
-                                    <textarea class="form-control"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="text-end">
-                                <button class="btn btn-primary">
-                                    <i class="bi bi-check-circle"></i>
-                                    Lập đơn hàng
-                                </button>
-                            </div>
-                        </form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="customerEmail" placeholder="Nhập email (không bắt buộc)" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Tỉnh/thành giao hàng (*)</label>
+                            <select class="form-select select2" name="deliveryProvince" required>
+                                <option value="">-- Chọn Tỉnh/thành --</option>
+                                @if (ViewBag.Provinces != null)
+                                {
+                                    foreach (var p in ViewBag.Provinces)
+                                    {
+                                        <option value="@p.ProvinceName">@p.ProvinceName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Địa chỉ nhận hàng chi tiết (*)</label>
+                        <textarea class="form-control" name="deliveryAddress" rows="2" required placeholder="Nhập số nhà, tên đường, phường/xã..."></textarea>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary px-4 fw-bold"><i class="bi bi-check-circle"></i> LẬP ĐƠN HÀNG</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        function showShoppingCart() {
+            $.ajax({
+                url: "/Order/GetShoppingCart",
+                type: "GET",
+                success: function (data) {
+                    $("#shoppingCartContainer").html(data);
+                }
+            });
+        }
+
+        // Xử lý form tìm kiếm mặt hàng
+        $(document).on("submit", "#formSearchProduct", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr('action'),
+                type: 'GET',
+                data: form.serialize(),
+                success: function (result) {
+                    $('#productSearchResult').html(result);
+                }
+            });
+        });
+
+        // Xử lý form thêm vào giỏ hàng
+        $(document).on("submit", ".form-add-to-cart", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr("action"),
+                type: 'POST',
+                data: form.serialize(),
+                success: function (res) {
+                    let code = res.code !== undefined ? res.code : res.Code;
+                    let msg = res.message !== undefined ? res.message : res.Message;
+
+                    if (code === 1) { showShoppingCart(); }
+                    else if (msg) { alert(msg); }
+                }
+            });
+        });
+
+        // Xử lý bật Modal cho nút Sửa/Xóa trong giỏ hàng
+        $(document).on("click", "#shoppingCartContainer .open-modal", function (e) {
+            e.preventDefault();
+            if (typeof openModal === "function") { openModal(e, this); }
+        });
+
+        // Xử lý submit form bên trong Modal (Sửa/Xóa/Clear)
+        $(document).on("submit", "#dialogModal form", function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                url: form.attr("action"),
+                type: form.attr("method"),
+                data: form.serialize(),
+                success: function (res) {
+                    let code = res.code !== undefined ? res.code : res.Code;
+                    if (code === 1) {
+                        $('#dialogModal').modal('hide');
+                        showShoppingCart();
+                    } else {
+                        alert(res.message || res.Message || "Có lỗi xảy ra!");
+                    }
+                }
+            });
+        });
+
+        // ĐÂY LÀ ĐOẠN ĐÃ SỬA: Xử lý submit form Lập Đơn Hàng an toàn bằng jQuery
+        $(document).on("submit", "#formInitOrder", function (e) {
+            e.preventDefault(); // Chặn hành vi chuyển trang mặc định
+            var form = $(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function (res) {
+                    let code = res.code !== undefined ? res.code : res.Code;
+                    let msg = res.message !== undefined ? res.message : res.Message;
+                    let orderId = res.orderID !== undefined ? res.orderID : res.OrderID;
+
+                    if (code === 1) {
+                        // Thành công -> Chuyển hướng sang trang chi tiết
+                        window.location.href = "/Order/Detail/" + orderId;
+                    } else {
+                        // Thất bại (VD: quên nhập thông tin) -> Bật thông báo
+                        alert(msg || "Lập đơn hàng thất bại!");
+                    }
+                },
+                error: function() {
+                    alert("Lỗi kết nối đến máy chủ.");
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            if ($.fn.select2) { $('.select2').select2(); }
+            $('#formSearchProduct').submit(); // Tự động lấy danh sách mặt hàng khi mở trang
+        });
+    </script>
+}

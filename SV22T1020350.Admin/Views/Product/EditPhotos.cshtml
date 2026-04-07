@@ -1,0 +1,27 @@
+﻿@model SV22T1020350.Models.Catalog.ProductPhoto
+@section PageToolBar {
+    <button type="submit" form="frm" class="btn btn-primary">Lưu</button>
+    <a href="/Product/Edit/@Model.ProductID" class="btn btn-secondary">Quay lại</a>
+}
+<div class="card card-info card-outline">
+    <div class="card-body">
+        <form id="frm" action="/Product/SavePhoto" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="hidden" name="PhotoID" value="@Model.PhotoID" />
+            <input type="hidden" name="Photo" value="@Model.Photo" />
+            <div class="mb-3">
+                <label>Chọn ảnh</label>
+                <input type="file" name="uploadPhoto" class="form-control" onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])" />
+                <img id="img" src="/images/products/@(string.IsNullOrEmpty(Model.Photo) ? "nophoto.png" : Model.Photo)" class="mt-2 img-thumbnail" style="height:150px" />
+            </div>
+            <div class="mb-3">
+                <label>Mô tả</label>
+                <input type="text" name="Description" value="@Model.Description" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label>Thứ tự hiển thị</label>
+                <input type="number" name="DisplayOrder" value="@Model.DisplayOrder" class="form-control" />
+            </div>
+        </form>
+    </div>
+</div>

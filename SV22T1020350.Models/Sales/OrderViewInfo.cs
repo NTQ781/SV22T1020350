@@ -6,6 +6,10 @@
     public class OrderViewInfo : Order
     {
         /// <summary>
+        /// Tổng giá trị của đơn hàng (thường được tính từ tổng TotalPrice của các OrderDetail)
+        /// </summary>
+        public decimal TotalValue { get; set; }
+        /// <summary>
         /// Tên nhân viên phụ trách đơn hàng
         /// </summary>
         public string EmployeeName { get; set; } = "";

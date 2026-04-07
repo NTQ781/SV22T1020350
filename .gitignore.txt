@@ -1,0 +1,12 @@
+# Visual Studio rác
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+
+# File tạm của hệ thống
+Thumbs.db
+ehthumbs.db
+Desktop.ini

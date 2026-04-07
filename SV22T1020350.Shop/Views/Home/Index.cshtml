@@ -1,8 +1,156 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model SV22T1020350.Models.Common.PagedResult<SV22T1020350.Models.Catalog.Product>
+@{
+    ViewData["Title"] = "Trang chủ - NTQ Shop";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="bg-white p-4 rounded shadow-sm border mb-4">
+            <h6 class="fw-bold mb-3 text-uppercase small" style="letter-spacing: 1px"><i class="bi bi-funnel"></i> BỘ LỌC TÌM KIẾM</h6>
+
+            <form action="~/Home" method="get" class="mb-4 pb-4 border-bottom">
+                <input type="hidden" name="categoryId" value="@ViewBag.CategoryID" />
+                <input type="hidden" name="searchValue" value="@ViewBag.SearchValue" />
+
+                <h6 class="fw-bold mb-3 text-muted small">KHOẢNG GIÁ</h6>
+                <div class="row g-2 mb-3">
+                    <div class="col-6">
+                        <input type="number" class="form-control form-control-sm text-center" name="minPrice" placeholder="Từ (đ)" value="@(ViewBag.MinPrice > 0 ? ViewBag.MinPrice : "")" min="0">
+                    </div>
+                    <div class="col-6">
+                        <input type="number" class="form-control form-control-sm text-center" name="maxPrice" placeholder="Đến (đ)" value="@(ViewBag.MaxPrice > 0 ? ViewBag.MaxPrice : "")" min="0">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-primary btn-sm w-100 fw-bold">ÁP DỤNG LỌC</button>
+            </form>
+
+            <h6 class="fw-bold mb-3 text-muted small">DANH MỤC SẢN PHẨM</h6>
+            <div class="list-group list-group-flush category-sidebar">
+                <a href="~/Home?categoryId=0&searchValue=@ViewBag.SearchValue&minPrice=@ViewBag.MinPrice&maxPrice=@ViewBag.MaxPrice"
+                   class="list-group-item list-group-item-action @(ViewBag.CategoryID == 0 ? "active" : "")">
+                    Tất cả
+                </a>
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var cat in ViewBag.Categories)
+                    {
+                        <a href="~/Home?categoryId=@cat.CategoryID&searchValue=@ViewBag.SearchValue&minPrice=@ViewBag.MinPrice&maxPrice=@ViewBag.MaxPrice"
+                           class="list-group-item list-group-item-action @(ViewBag.CategoryID == cat.CategoryID ? "active" : "")">
+                            @cat.CategoryName
+                        </a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9">
+        @if (ViewBag.MinPrice > 0 || ViewBag.MaxPrice > 0)
+        {
+            <div class="alert alert-info py-2 small mb-4">
+                <i class="bi bi-info-circle me-1"></i> Đang hiển thị sản phẩm có giá
+                @if (ViewBag.MinPrice > 0)
+                {
+                    <span>từ <b>@ViewBag.MinPrice.ToString("N0")đ</b></span>
+                }
+                @if (ViewBag.MinPrice > 0 && ViewBag.MaxPrice > 0)
+                {
+                    <span> đến </span>
+                }
+                @if (ViewBag.MaxPrice > 0)
+                {
+                    <span><b>@ViewBag.MaxPrice.ToString("N0")đ</b></span>
+                }
+                <a href="~/Home?categoryId=@ViewBag.CategoryID&searchValue=@ViewBag.SearchValue" class="text-danger ms-2 fw-bold text-decoration-none">
+                    <i class="bi bi-x-circle"></i> Xóa bộ lọc giá
+                </a>
+            </div>
+        }
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+            @if (Model.DataItems.Count == 0)
+            {
+                <div class="col-12 text-center text-muted py-5 w-100">
+                    Không tìm thấy sản phẩm nào phù hợp với bộ lọc.
+                </div>
+            }
+            @foreach (var item in Model.DataItems)
+            {
+                <div class="col">
+                    <div class="card h-100 product-card border-0 shadow-sm">
+                        <a href="~/Product/Detail/@item.ProductID" class="text-decoration-none">
+                            <div class="p-3">
+                                <img src="~/images/products/@(string.IsNullOrEmpty(item.Photo) ? "demo.png" : item.Photo)"
+                                     class="card-img-top" style="height: 160px; object-fit: contain;">
+                            </div>
+                            <div class="card-body pt-0">
+                                <h6 class="card-title fw-semibold">@item.ProductName</h6>
+                                <div class="product-price my-2">@item.Price.ToString("N0") đ</div>
+                                <div class="small text-muted">@item.Unit</div>
+                            </div>
+                        </a>
+                        <div class="px-3 pb-3">
+                            <button type="button" class="btn btn-soft-cart btn-sm w-100" onclick="addToCart(@item.ProductID, 1)">
+                                <i class="bi bi-cart-plus"></i> Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (Model.PageCount > 1)
+        {
+            <nav class="mt-5 d-flex justify-content-center w-100">
+                <ul class="pagination shadow-sm d-inline-flex rounded-3 bg-white p-2 mb-0">
+                    @{
+                        int totalPages = Model.PageCount;
+                        int currentPage = Model.Page;
+                        int delta = 3;
+                        int startPage = Math.Max(2, currentPage - delta);
+                        int endPage = Math.Min(totalPages - 1, currentPage + delta);
+
+                        // Chuỗi URL dùng chung để code ngắn gọn
+                        string queryParams = $"categoryId={ViewBag.CategoryID}&searchValue={ViewBag.SearchValue}&minPrice={ViewBag.MinPrice}&maxPrice={ViewBag.MaxPrice}";
+                    }
+
+                    <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                        <a class="page-link border-0 text-secondary" href="~/Home?page=@(currentPage - 1)&@queryParams"><i class="bi bi-chevron-left"></i></a>
+                    </li>
+
+                    <li class="page-item @(currentPage == 1 ? "active" : "")">
+                        <a class="page-link border-0 rounded-3" href="~/Home?page=1&@queryParams">1</a>
+                    </li>
+
+                    @if (startPage > 2)
+                    {
+                        <li class="page-item disabled"><span class="page-link border-0 text-muted bg-transparent">...</span></li>
+                    }
+
+                    @for (int p = startPage; p <= endPage; p++)
+                    {
+                        <li class="page-item @(p == currentPage ? "active" : "")">
+                            <a class="page-link border-0 rounded-3" href="~/Home?page=@p&@queryParams">@p</a>
+                        </li>
+                    }
+
+                    @if (endPage < totalPages - 1)
+                    {
+                        <li class="page-item disabled"><span class="page-link border-0 text-muted bg-transparent">...</span></li>
+                    }
+
+                    @if (totalPages > 1)
+                    {
+                        <li class="page-item @(currentPage == totalPages ? "active" : "")">
+                            <a class="page-link border-0 rounded-3" href="~/Home?page=@totalPages&@queryParams">@totalPages</a>
+                        </li>
+                    }
+
+                    <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                        <a class="page-link border-0 text-secondary" href="~/Home?page=@(currentPage + 1)&@queryParams"><i class="bi bi-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        }
+    </div>
 </div>

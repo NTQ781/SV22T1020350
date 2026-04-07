@@ -1,0 +1,131 @@
+﻿@model SV22T1020350.Models.Sales.OrderViewInfo
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng #" + Model.OrderID;
+    var details = ViewBag.Details as IEnumerable<SV22T1020350.Models.Sales.OrderDetailViewInfo>;
+    decimal total = details.Sum(d => d.TotalPrice);
+}
+
+<div class="row mt-3 mb-5 justify-content-center">
+    <div class="col-lg-10">
+        <a href="/Order/History" class="btn btn-sm btn-outline-secondary rounded-pill mb-3 px-3 shadow-sm">
+            <i class="bi bi-arrow-left me-1"></i> Trở về lịch sử
+        </a>
+
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+            <div class="bg-light p-4 border-bottom d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div>
+                    <h4 class="fw-bold text-slate mb-1">ĐƠN HÀNG #@Model.OrderID</h4>
+                    <span class="text-muted small"><i class="bi bi-calendar-event me-1"></i> Đặt lúc: @Model.OrderTime.ToString("dd/MM/yyyy HH:mm")</span>
+                </div>
+                <div>
+                    @if ((int)Model.Status == 1)
+                    {
+                        <span class="badge bg-warning text-dark fs-6 px-3 py-2 rounded-pill shadow-sm"><i class="bi bi-hourglass-split me-1"></i> Chờ duyệt</span>
+                    }
+                    else if ((int)Model.Status == 2)
+                    {
+
+                        <span class="badge bg-info fs-6 px-3 py-2 rounded-pill shadow-sm"><i class="bi bi-check2-circle me-1"></i> Đã duyệt</span>
+                    }
+                    else if ((int)Model.Status == 3)
+                    {
+
+                        <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill shadow-sm"><i class="bi bi-truck me-1"></i> Đang giao</span>
+                    }
+                    else if ((int)Model.Status == 4)
+                    {
+
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill shadow-sm"><i class="bi bi-box-seam me-1"></i> Hoàn tất</span>
+                    }
+                    else
+                    {
+
+                        <span class="badge bg-danger fs-6 px-3 py-2 rounded-pill shadow-sm"><i class="bi bi-x-circle me-1"></i> Đã hủy</span>
+                    }
+                </div>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+                <div class="row mb-5 g-4">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-muted small text-uppercase mb-3"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Địa chỉ nhận hàng</h6>
+                        <div class="bg-light p-3 rounded-3 border border-secondary-subtle h-100 shadow-sm">
+                            <p class="mb-1 fw-bold text-dark fs-5">@Model.CustomerName</p>
+                            <p class="mb-1 text-secondary"><i class="bi bi-house me-1"></i> @Model.DeliveryAddress</p>
+                            <p class="mb-0 text-secondary"><i class="bi bi-map me-1"></i> @Model.DeliveryProvince</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-muted small text-uppercase mb-3"><i class="bi bi-info-circle-fill text-primary me-2"></i>Thông tin bổ sung</h6>
+                        <div class="bg-light p-3 rounded-3 border border-secondary-subtle h-100 shadow-sm">
+                            @if (Model.AcceptTime.HasValue)
+                            {
+                                <p class="mb-1 text-secondary small"><i class="bi bi-check-circle text-info me-1"></i> Duyệt lúc: <span class="fw-semibold">@Model.AcceptTime.Value.ToString("dd/MM/yyyy HH:mm")</span></p>
+                            }
+                            @if (Model.ShippedTime.HasValue)
+                            {
+                                <p class="mb-1 text-secondary small"><i class="bi bi-truck text-primary me-1"></i> Giao lúc: <span class="fw-semibold">@Model.ShippedTime.Value.ToString("dd/MM/yyyy HH:mm")</span></p>
+                            }
+                            @if (Model.FinishedTime.HasValue)
+                            {
+                                <p class="mb-1 text-secondary small"><i class="bi bi-flag-fill text-success me-1"></i> Kết thúc: <span class="fw-semibold">@Model.FinishedTime.Value.ToString("dd/MM/yyyy HH:mm")</span></p>
+                            }
+                            @if (!Model.AcceptTime.HasValue)
+                            {
+                                <p class="mb-0 text-muted fst-italic">Đơn hàng đang chờ nhân viên cửa hàng xác nhận.</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <h6 class="fw-bold text-muted small text-uppercase mb-3"><i class="bi bi-box2-heart-fill text-success me-2"></i>Sản phẩm đã mua</h6>
+                <div class="table-responsive mb-4 rounded-3 border shadow-sm">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light text-muted small text-uppercase">
+                            <tr>
+                                <th class="ps-4">Tên mặt hàng</th>
+                                <th class="text-center">ĐVT</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-end">Đơn giá</th>
+                                <th class="text-end pe-4">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in details)
+                            {
+                                <tr>
+                                    <td class="ps-4 py-3 fw-semibold text-dark">@item.ProductName</td>
+                                    <td class="text-center text-secondary">@item.Unit</td>
+                                    <td class="text-center fw-bold">@item.Quantity</td>
+                                    <td class="text-end text-secondary">@item.SalePrice.ToString("N0")</td>
+                                    <td class="text-end fw-bold text-danger pe-4">@item.TotalPrice.ToString("N0") đ</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="bg-summary p-4 rounded-4 shadow-sm border border-primary border-opacity-10">
+                            <div class="d-flex justify-content-between mb-2 small text-muted">
+                                <span>Tạm tính (@details.Sum(d => d.Quantity) sản phẩm):</span>
+                                <span>@total.ToString("N0") đ</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 small text-muted">
+                                <span>Phí vận chuyển:</span>
+                                <span class="text-success fw-bold">Miễn phí</span>
+                            </div>
+                            <hr class="my-3 border-secondary-subtle">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-dark fs-5">TỔNG CỘNG:</span>
+                                <span class="fw-bold text-danger fs-3">@total.ToString("N0") đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

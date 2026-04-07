@@ -5,6 +5,7 @@ D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T10203
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.AssemblyInfoInputs.cache
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.AssemblyInfo.cs
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.csproj.CoreCompileInputs.cache
+D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.sourcelink.json
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.dll
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\refint\SV22T1020350.Models.dll
 D:\Work\LTUDweb\bt\SV22T1020350\SV22T1020350.Models\obj\Debug\net10.0\SV22T1020350.Models.pdb

@@ -1,241 +1,186 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SV22T1020350.BusinessLayers;
+using SV22T1020350.Models.Catalog;
+using SV22T1020350.Models.Common;
 
-namespace SV22T1020350.Web.Controllers
-
+namespace SV22T1020350.Admin.Controllers
 {
-    /// <summary>
-    /// các dữ liệu của mặt hàng
-    /// </summary>
-
+    [Authorize]
     public class ProductController : Controller
-
     {
-        public IActionResult Index()
+        private const string PRODUCT_SEARCH = "ProductSearchInput";
 
+        public async Task<IActionResult> Index()
         {
-            ViewBag.Title = "Danh sách mặt hàng";
-
-            return View();
+            var input = ApplicationContext.GetSessionData<ProductSearchInput>(PRODUCT_SEARCH);
+            if (input == null)
+            {
+                input = new ProductSearchInput()
+                {
+                    Page = 1,
+                    PageSize = ApplicationContext.PageSize,
+                    SearchValue = "",
+                    CategoryID = 0,
+                    SupplierID = 0,
+                    MinPrice = 0,
+                    MaxPrice = 0
+                };
+            }
+            ViewBag.Categories = (await CatalogDataService.ListCategoriesAsync(new PaginationSearchInput { PageSize = 0 })).DataItems;
+            ViewBag.Suppliers = (await PartnerDataService.ListSuppliersAsync(new PaginationSearchInput { PageSize = 0 })).DataItems;
+            return View(input);
         }
 
-        /// <summary>
-        /// chi tiết mặt hàng
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
-        public IActionResult Detail(int id)
-
+        public async Task<IActionResult> Search(ProductSearchInput input)
         {
-
-            ViewBag.Title = "Chi tiết mặt hàng";
-
-            ViewBag.ProductId = id;
-
-            return View();
-
+            var result = await CatalogDataService.ListProductsAsync(input);
+            ApplicationContext.SetSessionData(PRODUCT_SEARCH, input);
+            return PartialView(result);
         }
-
-        /// <summary>
-        /// Bổ sung mặt hàng
-        /// </summary>
-        /// <returns></returns>
 
         public IActionResult Create()
-
         {
             ViewBag.Title = "Bổ sung mặt hàng";
-            return View("Edit");
-
+            return View("Edit", new Product { ProductID = 0, IsSelling = true });
         }
 
-        /// <summary>
-        /// Cập nhật mặt hàng
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult Edit(int id)
-
-        { 
+        public async Task<IActionResult> Edit(int id)
+        {
             ViewBag.Title = "Cập nhật mặt hàng";
-
-            ViewBag.ProductId = id;
-
-            return View();
-
+            var model = await CatalogDataService.GetProductAsync(id);
+            if (model == null) return RedirectToAction("Index");
+            ViewBag.Photos = await CatalogDataService.ListPhotosAsync(id);
+            ViewBag.Attributes = await CatalogDataService.ListAttributesAsync(id);
+            return View(model);
         }
 
-        /// <summary>
-        /// Xóa mặt hàng
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult Delete(int id)
-
+        [HttpPost]
+        public async Task<IActionResult> Save(Product data, IFormFile? uploadPhoto)
         {
-            ViewBag.Title = "Xóa mặt hàng";
-            ViewBag.ProductId = id;
-            return View();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(data.ProductName)) ModelState.AddModelError(nameof(data.ProductName), "Tên không được trống");
+                if (!ModelState.IsValid) return View("Edit", data);
 
+                if (uploadPhoto != null)
+                {
+                    string fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
+                    string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/products", fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create)) { await uploadPhoto.CopyToAsync(stream); }
+                    data.Photo = fileName;
+                }
+
+                if (data.ProductID == 0)
+                {
+                    int id = await CatalogDataService.AddProductAsync(data);
+                    return RedirectToAction("Edit", new { id = id });
+                }
+                await CatalogDataService.UpdateProductAsync(data);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex) { TempData["ErrorMessage"] = ex.Message; return View("Edit", data); }
         }
 
-        /// <summary>
-        /// Danh sách thuộc tính
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult ListAttributes(int id)
-
+        // --- QUẢN LÝ ẢNH ---
+        public IActionResult CreatePhotos(int id)
         {
-            ViewBag.Title = "Danh sách thuộc tính";
-            ViewBag.ProductId = id;
-            return View();
-
+            ViewBag.Title = "Thêm ảnh mặt hàng";
+            return View("EditPhotos", new ProductPhoto { ProductID = id, PhotoID = 0, DisplayOrder = 1 });
         }
 
-        /// <summary>
-        /// Thêm thuộc tính
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        public async Task<IActionResult> EditPhotos(int id, long photoId)
+        {
+            ViewBag.Title = "Cập nhật ảnh mặt hàng";
+            var model = await CatalogDataService.GetPhotoAsync(photoId);
+            if (model == null) return RedirectToAction("Edit", new { id });
+            return View(model);
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> SavePhoto(ProductPhoto data, IFormFile? uploadPhoto)
+        {
+            if (uploadPhoto != null)
+            {
+                string fileName = $"{DateTime.Now.Ticks}_{uploadPhoto.FileName}";
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/products", fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create)) { await uploadPhoto.CopyToAsync(stream); }
+                data.Photo = fileName;
+            }
+            if (data.PhotoID == 0) await CatalogDataService.AddPhotoAsync(data);
+            else await CatalogDataService.UpdatePhotoAsync(data);
+            return RedirectToAction("Edit", new { id = data.ProductID });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeletePhotos(int id, long photoId)
+        {
+            ViewBag.Title = "Xóa ảnh mặt hàng";
+            var model = await CatalogDataService.GetPhotoAsync(photoId);
+            if (model == null) return RedirectToAction("Edit", new { id });
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeletePhotosConfirm(int id, long photoId)
+        {
+            await CatalogDataService.DeletePhotoAsync(photoId);
+            return RedirectToAction("Edit", new { id });
+        }
+
+        // --- QUẢN LÝ THUỘC TÍNH ---
         public IActionResult CreateAttributes(int id)
-
         {
             ViewBag.Title = "Thêm thuộc tính";
-
-            ViewBag.ProductId = id;
-
-            return View("EditAttributes");
-
+            return View("EditAttributes", new ProductAttribute { ProductID = id, AttributeID = 0, DisplayOrder = 1 });
         }
 
-        /// <summary>
-        /// Cập nhật thuộc tính
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="attributeId"></param>
-        /// <returns></returns>
-
-        public IActionResult EditAttributes(int id, int attributeId)
-
+        public async Task<IActionResult> EditAttributes(int id, long attributeId)
         {
-
             ViewBag.Title = "Cập nhật thuộc tính";
-            ViewBag.ProductId = id;
-            ViewBag.AttributeId = attributeId;
-            return View();
-
+            var model = await CatalogDataService.GetAttributeAsync(attributeId);
+            if (model == null) return RedirectToAction("Edit", new { id });
+            return View(model);
         }
-        /// <summary>
-        /// Xóa thuộc tính
-        /// </summary>
 
-        /// <param name="id"></param>
-
-        /// <param name="attributeId"></param>
-
-        /// <returns></returns>
-
-        public IActionResult DeleteAttributes(int id, int attributeId)
-
+        [HttpPost]
+        public async Task<IActionResult> SaveAttribute(ProductAttribute data)
         {
+            if (data.AttributeID == 0) await CatalogDataService.AddAttributeAsync(data);
+            else await CatalogDataService.UpdateAttributeAsync(data);
+            return RedirectToAction("Edit", new { id = data.ProductID });
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> DeleteAttributes(int id, long attributeId)
+        {
             ViewBag.Title = "Xóa thuộc tính";
-
-            ViewBag.ProductId = id;
-
-            ViewBag.AttributeId = attributeId;
-
-            return View();
-
+            var model = await CatalogDataService.GetAttributeAsync(attributeId);
+            if (model == null) return RedirectToAction("Edit", new { id });
+            return View(model);
         }
 
-
-
-
-
-        /// <summary>
-
-        /// Danh sách hình ảnh
-
-        /// </summary>
-
-        /// <param name="id"></param>
-
-        /// <returns></returns>
-
-        public IActionResult ListPhotos(int id)
-
+        [HttpPost]
+        public async Task<IActionResult> DeleteAttributesConfirm(int id, long attributeId)
         {
-            ViewBag.Title = "Danh sách hình ảnh";
-            ViewBag.ProductId = id;
-            return View();
-
+            await CatalogDataService.DeleteAttributeAsync(attributeId);
+            return RedirectToAction("Edit", new { id });
         }
 
-        /// <summary>
-        /// Thêm hình ảnh
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public IActionResult CreatePhotos(int id)
-
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
         {
-            ViewBag.Title = "Thêm hình ảnh";
-            ViewBag.ProductId = id;
-            return View("EditPhotos");
-
+            ViewBag.Title = "Xóa mặt hàng";
+            var model = await CatalogDataService.GetProductAsync(id);
+            if (model == null) return RedirectToAction("Index");
+            return View(model);
         }
 
-        /// <summary>
-        /// Cập nhật hình ảnh
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="photoId"></param>
-        /// <returns></returns>
-        public IActionResult EditPhotos(int id, int photoId)
-
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirm(int id)
         {
-
-            ViewBag.Title = "Cập nhật hình ảnh";
-
-            ViewBag.ProductId = id;
-
-            ViewBag.PhotoId = photoId;
-
-            return View();
-
+            try { await CatalogDataService.DeleteProductAsync(id); return RedirectToAction("Index"); }
+            catch (Exception ex) { TempData["ErrorMessage"] = ex.Message; return RedirectToAction("Delete", new { id }); }
         }
-
-
-
-        /// <summary>
-
-        /// Xóa hình ảnh
-
-        /// </summary>
-
-        /// <param name="id"></param>
-
-        /// <param name="photoId"></param>
-
-        /// <returns></returns>
-
-        public IActionResult DeletePhotos(int id, int photoId)
-
-        {
-
-            ViewBag.Title = "Xóa hình ảnh";
-
-            ViewBag.ProductId = id;
-
-            ViewBag.PhotoId = photoId;
-
-            return View();
-
-        }
-
     }
-
 }

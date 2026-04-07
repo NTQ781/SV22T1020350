@@ -1,5 +1,8 @@
-﻿@{
+﻿@model Customer
+@{
+
 }
+
 @section PageToolBar {
     <button type="submit" form="formEdit" class="btn btn-primary">
         <i class="bi bi-save"></i>
@@ -22,30 +25,31 @@
             </div>
 
             <div class="card-body">
-                <form id="formEdit" method="post">
+                <form id="formEdit" method="post" action="~/Customer/SaveData">
+                    <input type="hidden" asp-for="CustomerID" />
 
                     <div class="row align-items-end">
                         <div class="col-md-5 mb-3">
                             <label class="form-label">Tên khách hàng</label>
-                            <input type="text"
+                            <input type="text" asp-for="CustomerName"
                                    class="form-control"
-                                   placeholder="Nhập tên khách hàng" autofocus />
+                                   placeholder="" autofocus />
+                            <span class="text-danger" asp-validation-for="CustomerName"></span>
                         </div>
                         <div class="col-md-5 mb-3">
                             <label class="form-label">Tên giao dịch</label>
-                            <input type="text"
+                            <input type="text" asp-for="ContactName"
                                    class="form-control"
-                                   placeholder="Nhập tên giao dịch" />
+                                   placeholder="" />
                         </div>
                         <div class="col-md-2 mb-3">
                             <label class="form-label d-block">Trạng thái</label>
                             <div class="form-check form-switch mt-2">
-                                <input class="form-check-input"
+                                <input class="form-check-input" asp-for="IsLocked"
                                        type="checkbox"
-                                       id="IsActive"
-                                       checked />
-                                <label class="form-check-label" for="IsActive">
-                                    Đang hoạt động
+                                       id="IsLocked" />
+                                <label class="form-check-label" for="Islocked">
+                                    Đang bị khóa
                                 </label>
                             </div>
                         </div>
@@ -54,35 +58,34 @@
                     <div class="row">
                         <div class="col-md-5 mb-3">
                             <label class="form-label">Điện thoại</label>
-                            <input type="tel"
+                            <input type="tel" asp-for="Phone"
                                    class="form-control"
-                                   placeholder="Nhập số điện thoại" />
+                                   placeholder="" />
                         </div>
 
                         <div class="col-md-7 mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email"
+                            <input type="email" asp-for="Email"
                                    class="form-control"
-                                   placeholder="Nhập email" />
+                                   placeholder="" />
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Địa chỉ</label>
-                        <textarea class="form-control"
+                        <textarea class="form-control" asp-for="Address"
                                   rows="3"
-                                  placeholder="Nhập địa chỉ"></textarea>
+                                  placeholder=""></textarea>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Tỉnh / Thành</label>
-                        <select class="form-select">
-                            <option value="">-- Chọn tỉnh / thành --</option>
-                            <option>Hà Nội</option>
-                            <option>TP. Hồ Chí Minh</option>
-                            <option>Đà Nẵng</option>
-                            <option>Cần Thơ</option>
+                        <select class="form-select"
+                        asp-for="Province"
+                            asp-items="await SelectListHelper.Provinces()">
                         </select>
+                        <span asp-validation-for="Province" class="text-bg-danger"></span>
+
                     </div>
                 </form>
             </div>

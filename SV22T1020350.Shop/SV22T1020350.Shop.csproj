@@ -6,4 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.3.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.3.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SV22T1020350.BusinessLayers\SV22T1020350.BusinessLayers.csproj" />
+    <ProjectReference Include="..\SV22T1020350.Models\SV22T1020350.Models.csproj" />
+  </ItemGroup>
+
 </Project>

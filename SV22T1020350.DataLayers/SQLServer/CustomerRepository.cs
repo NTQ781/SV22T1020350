@@ -117,17 +117,14 @@ namespace SV22T1020350.DataLayers.SQLServer
         /// <returns>Mã CustomerID của bản ghi vừa được thêm</returns>
         public async Task<int> AddAsync(Customer data)
         {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                string sql = @"INSERT INTO Customers
-                               (CustomerName, ContactName, Province, Address, Phone, Email, IsLocked)
-                               VALUES
-                               (@CustomerName, @ContactName, @Province, @Address, @Phone, @Email, @IsLocked);
-                               SELECT CAST(SCOPE_IDENTITY() AS INT);";
+            using var connection = new Microsoft.Data.SqlClient.SqlConnection(_connectionString);
 
-                int id = await connection.ExecuteScalarAsync<int>(sql, data);
-                return id;
-            }
+            // ĐÃ BỔ SUNG TRƯỜNG Password VÀO LỆNH INSERT VÀ VALUES
+            var sql = @"INSERT INTO Customers(CustomerName, ContactName, Province, Address, Phone, Email, IsLocked, Password)
+                        VALUES(@CustomerName, @ContactName, @Province, @Address, @Phone, @Email, @IsLocked, @Password);
+                        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+
+            return await connection.ExecuteScalarAsync<int>(sql, data);
         }
 
         /// <summary>
@@ -221,6 +218,21 @@ namespace SV22T1020350.DataLayers.SQLServer
                 int count = await connection.ExecuteScalarAsync<int>(sql, new { email, id });
                 return count == 0;
             }
+        }
+
+        public Customer? CheckLogin(string email, string password)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            var sql = @"SELECT * FROM Customers 
+                WHERE Email = @Email AND Password = @Password AND IsLocked = 0";
+            return connection.QueryFirstOrDefault<Customer>(sql, new { Email = email, Password = password });
+        }
+
+        public bool ChangePassword(int customerID, string newPassword)
+        {
+            using var connection = new Microsoft.Data.SqlClient.SqlConnection(_connectionString);
+            var sql = @"UPDATE Customers SET Password = @Password WHERE CustomerID = @CustomerID";
+            return connection.Execute(sql, new { Password = newPassword, CustomerID = customerID }) > 0;
         }
     }
 }

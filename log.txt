@@ -201,5 +201,5 @@ _ SupplierRepository: IGenericRepository<Supplier>
 		Dùng session để lưu "bookmark":
 		- Khi thực hiện chức năng tìm kiếm, lọc dữ liệu thì lưu các tham số (điều kiện) tìm kiếm, lọc dữ liệu vào session
 		- khi vào chức năng đăng nhập điều kiện tìm kiếm (index), kiểm tra nếu trong sesstion đang lưu điều
-		kiện tùm kiếm thì sử dụng lại, nếu không thì mới tạo điều kiện tìm kiếm mới.
-		Trong ÁP.NET cỏe MVC, muốn dùng session thì phải đăng ký (registers) vào app
+		kiện tìm kiếm thì sử dụng lại, nếu không thì mới tạo điều kiện tìm kiếm mới.
+		Trong ASP.NET core MVC, muốn dùng session thì phải đăng ký (registers) vào app

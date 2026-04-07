@@ -1,0 +1,25 @@
+﻿@model SV22T1020350.Models.Catalog.ProductAttribute
+@section PageToolBar {
+    <button type="submit" form="frm" class="btn btn-primary">Lưu</button>
+    <a href="/Product/Edit/@Model.ProductID" class="btn btn-secondary">Quay lại</a>
+}
+<div class="card card-success card-outline">
+    <div class="card-body">
+        <form id="frm" action="/Product/SaveAttribute" method="post">
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            <input type="hidden" name="AttributeID" value="@Model.AttributeID" />
+            <div class="mb-3">
+                <label>Tên thuộc tính</label>
+                <input type="text" name="AttributeName" value="@Model.AttributeName" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label>Giá trị</label>
+                <input type="text" name="AttributeValue" value="@Model.AttributeValue" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label>Thứ tự hiển thị</label>
+                <input type="number" name="DisplayOrder" value="@Model.DisplayOrder" class="form-control" />
+            </div>
+        </form>
+    </div>
+</div>
